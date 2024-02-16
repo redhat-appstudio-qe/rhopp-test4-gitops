@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: rhopp-test4-gitops
+  description: This is GitOps manifest for rhopp-test4   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: rhopp-test4
+    janus-idp.io/tekton: rhopp-test4 
+    backstage.io/kubernetes-id: rhopp-test4
+    backstage.io/kubernetes-namespace: rhopp
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:rhopp-test4
